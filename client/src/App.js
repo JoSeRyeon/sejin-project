@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<LayoutContainer />} >
-        {/* 기본 페이지를 index로 설정 */}
+        {/* 기본 페이지를 index로 설정! */}
         <Route index element={<Check />} /> 
         <Route path="/search" element={<Home />} />
         <Route path="/favorite" element={<Favorite />} />
