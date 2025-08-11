@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #f1f1f1;
+}
+
+.main-container .ant-input-group-addon > button {
+  background-color: #9384D1;
+}
+
+.title {
+  background-color: #434242;
+  padding: 5px;
+}
+
+
+.blank {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 56vh;
+}
+
+.sub-item {
+  padding: 10px;
+}
+
+.sub-item2 {
+  margin: 10px;
+}
+
+.sub-item3 {
+  margin-bottom: 10px;
+}
+
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-value-wrap {
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.editable-row:hover .editable-cell-value-wrap {
+  padding: 4px 11px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.footer-container {
+  display: flex;
+  width: 100%;
+  padding: 7px 0;
+  border-radius: 3px;
+  border: 1px solid pink;
+}
+
+.empty-space {
+  flex: 8;  /* 80% 공간 */
+  text-align: center;
+}
+
+.text {
+  flex: 2;  /* 20% 공간 */
+  margin-left: 120px;
+}
+
+.content {
+  height: 100%;
+  overflow: auto;
+}
+
+.selected-date {
+  background-color: #1677ff;
+  color: #fff;
+}
+
+.date-picker {
+  padding : 4px 16px;
+  border-radius: 5px;
+}
+
+.title-vertical {
+  margin: 0 32px 0 0;
+}
+
+.bold-font {
+  font-weight: bold;
+}
+
+.large-font {
+  font-size: large;
+}
+
+.plus {
+  color: #006100;
+  background-color: #c6efce;
+}
+
+.minus {
+  color: #9c0006;
+  background-color: #ffc7ce;
+}
+
+.footer-value {
+  padding: 3px 10px;
+  border-radius: 5px; 
+}
+
+.success {
+  color: #1677ff;
+}
+
+.fail {
+  color: red;
+}
+
+.fail-highlight {
+  background-color: #ffc7ce;
+}
+
+.check-title {
+  font-size: large;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.check-container{
+  padding : 5px
+}
