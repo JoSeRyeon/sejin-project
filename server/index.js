@@ -69,54 +69,28 @@ app.post('/runBatchFile2', (req, res) => {
 
 app.post('/runBatchFile', (req, res) => {
 
-  const fileInfo = req.body.sheetName;
+  const { fileName, sheetName, cellAddress } = req.body;
 
+  if (!fileName || !sheetName || !cellAddress) {
+    return res.status(400).send({ error: 'fileName, sheetName, cellAddress are required.' });
+  }
 
-  let batList = '';
+  const vbsPath = path.join(__dirname, 'openExcel.vbs');
+  const filePath = path.join(__dirname, 'uploads', fileName);
+  const cmd = `"cscript" //nologo "${vbsPath}" "${filePath}" "${sheetName}" "${cellAddress}"`;
 
-  fileList.map((data) => {
-    if (batList === '') {
-      batList += `@echo off
-    chcp 65001
-    Start C:\\Sejin\\server\\uploads\\"${data}"
-    `
-    } else {
-      batList += `
-     
-    @echo off
-    chcp 65001
-    Start C:\\Sejin\\server\\uploads\\"${data}"
-    `
+  exec(cmd, (error, stdout, stderr) => {
+    console.log('exec callback fired');
+    if (error) {
+      console.error('Error:', error);
+      console.error('stderr:', stderr);
+      return res.status(500).send({ error: 'Failed to open Excel via VBS script.' });
     }
-
-  })
-
-  let content = `@echo off
-chcp 65001
-
-set name="${fileInfo}"
-Start C:\\Sejin\\server\\uploads\\%name%
-cmd/k 
-`;
-
-
-  fs.writeFileSync(path.join(__dirname, 'openfile_last.bat'), content, { encoding: 'utf8' }, (err) => {
-
-    if (err) throw err;
-    console.log('example.bat file is created!');
-
+    console.log('stdout:', stdout);
+    return res.send({ success: true });
   });
 
-  exec(path.join(__dirname, 'openfile_last.bat'), (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(stdout);
-  });
-  res.send({});
-});
-
+})
 
 app.post('/resetFileList', (req, res) => {
 
